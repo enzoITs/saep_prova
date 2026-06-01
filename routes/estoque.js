@@ -107,7 +107,7 @@ router.get('/maiores_saidas', (req, res) => {
         GROUP BY p.id, p.nome
         ORDER BY quantidade_total_saida DESC;
     `;
-
+x
     db.query(sql, [data_inicio, data_fim], (err, results) => {
         if (err) {
             console.error(err);
