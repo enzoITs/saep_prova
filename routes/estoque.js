@@ -5,7 +5,7 @@ const db = require('../db');
 router.get('/produtos', (req, res) => {
     db.query('SELECT * FROM produtos', (err, results) => {
         if (err) {
-            res.status(500).json({ error: 'Erro ao buscar usuários' });
+            res.status(500).json({ error: 'Erro ao buscar produtos' });
         } else {
             res.json(results);
         }
@@ -15,7 +15,7 @@ router.get('/produtos', (req, res) => {
 router.get('/categoria', (req, res) => {
     db.query('SELECT categoria, SUM(quantidade * valor_unidade) AS total_categoria FROM produtos GROUP BY categoria', (err, results) => {
         if (err) {
-            res.status(500).json({ error: 'Erro ao buscar usuários' });
+            res.status(500).json({ error: 'Erro ao buscar categorias' });
         } else {
             res.json(results);
         }
